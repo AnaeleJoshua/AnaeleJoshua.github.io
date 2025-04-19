@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Josh's Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Josh</div>
+            <ul class="nav-links">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#certifications" class="nav-link">Certifications</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button id="theme-toggle" class="theme-toggle"><i class="fas fa-sun"></i></button>
+            <button id="mobile-menu-button" class="mobile-menu-button"><i class="fas fa-bars"></i></button>
+        </nav>
+        <div id="mobile-menu" class="mobile-menu hidden">
+            <a href="#about" class="mobile-link">About</a>
+            <a href="#skills" class="mobile-link">Skills</a>
+            <a href="#certifications" class="mobile-link">Certifications</a>
+            <a href="#projects" class="mobile-link">Projects</a>
+            <a href="#experience" class="mobile-link">Experience</a>
+            <a href="#contact" class="mobile-link">Contact</a>
+            <button id="theme-toggle-mobile" class="theme-toggle"><i class="fas fa-sun"></i></button>
+        </div>
+    </header>
+
+    <main>
+        <section id="about">
+            <h2>About Me</h2>
+            <p>I am Josh Anaele, a backend developer with a passion for scalable systems, clean code, and seamless user experience. With a background in Physics Electronics and an MSc in Information Technology, I blend analytical skills with modern tech expertise to deliver impactful software solutions.</p>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <ul>
+                <li>Node.js, Express, FastAPI</li>
+                <li>PostgreSQL, MongoDB</li>
+                <li>Docker, Vercel, WSL2</li>
+                <li>React, Chakra UI, HTML/CSS/JS</li>
+                <li>Python, C#, ASP.NET Core</li>
+            </ul>
+        </section>
+
+        <section id="certifications">
+            <h2>Certifications</h2>
+            <ul>
+                <li>Meta - Introduction to Backend Development</li>
+                <li>Coursera - Introduction to Cloud Computing</li>
+                <li>Google Cloud Skill Boost - Cloud Infrastructure</li>
+                <li>Cisco - Introduction to Cybersecurity</li>
+            </ul>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="project-card">School Result Management SaaS</div>
+            <div class="project-card">Early Pregnancy Detection App with Electron & SQLite</div>
+            <div class="project-card">React-NestJS Book Dashboard</div>
+            <div class="project-card">Video Editor Web App (In Progress)</div>
+            <div class="project-card">Telegram Bible Verse Bot using OpenAI</div>
+        </section>
+
+        <section id="experience">
+            <h2>Experience</h2>
+            <ul>
+                <li>Music Director, Choir - Event Coordination & Tech</li>
+                <li>Tech Coach - Led girls to state win in Fed Ministry innovation competition</li>
+                <li>Teaching - High School Math, Physics & Programming</li>
+            </ul>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <form id="contact-form">
+                <input type="text" id="name" placeholder="Name" required />
+                <input type="email" id="email" placeholder="Email" required />
+                <input type="text" id="subject" placeholder="Subject" required />
+                <textarea id="message" placeholder="Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
