@@ -145,6 +145,36 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             // If validation passes, you would typically send the form data to a server
+            fetch('#', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: name,
+                    email: email,
+                    subject: subject,
+                    message: message
+                })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Handle success
+                alert('Message sent successfully!');
+                contactForm.reset();
+            })
+            .catch(error => {
+                // Handle error
+                console.error('There was a problem with the fetch operation:', error);
+                alert('There was an error sending your message. Please try again later.');
+            }
+            );
+            // For demonstration purposes, we'll just show a success message
             // For this example, we'll just show a success message
             alert('Thank you for your message! I will get back to you soon.');
             contactForm.reset();
