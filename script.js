@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             // If validation passes, you would typically send the form data to a server
-            fetch('#', {
+            fetch('http://localhost:5000/mail', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -176,7 +176,7 @@ document.addEventListener('DOMContentLoaded', function() {
             );
             // For demonstration purposes, we'll just show a success message
             // For this example, we'll just show a success message
-            alert('Thank you for your message! I will get back to you soon.');
+            // alert('Thank you for your message! I will get back to you soon.');
             contactForm.reset();
         });
     }
