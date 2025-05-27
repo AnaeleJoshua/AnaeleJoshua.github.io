@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             // If validation passes, you would typically send the form data to a server
-            fetch('http://localhost:5000/mail', {
+            fetch('https://portfolio-server-snowy-omega.vercel.app/mail', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

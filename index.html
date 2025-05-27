@@ -19,6 +19,7 @@
                 <a href="#skills" class="nav-link">Skills</a>
                 <a href="#projects" class="nav-link">Projects</a>
                 <a href="#contact" class="nav-link">Contact</a>
+                <a href="#blog" class="nav-link">Blog</a>
                 <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
                     <i class="fas fa-sun"></i>
                 </button>
@@ -40,6 +41,7 @@
                 <a href="#skills" class="nav-link mobile-link">Skills</a>
                 <a href="#projects" class="nav-link mobile-link">Projects</a>
                 <a href="#contact" class="nav-link mobile-link">Contact</a>
+                <a href="#blog" class="nav-link mobile-link">Blog</a>
             </div>
         </div>
     </nav>
@@ -57,7 +59,7 @@
                 </div>
             </div>
             <div class="md:w-1/2 mt-10 md:mt-0 flex justify-center">
-                <img src="/josh.png?height=400&width=400" alt="John Doe" class="rounded-full h-64 w-64 object-cover shadow-xl" style="border: 4px solid var(--accent-color);">
+                <img src="images/josh.jpg" alt="John Doe" class="rounded-full h-64 w-64 object-cover shadow-xl" style="border: 4px solid var(--accent-color);">
             </div>
         </div>
     </section>
@@ -68,7 +70,7 @@
             <h2 class="text-4xl font-bold text-center mb-16">About Me</h2>
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/2 mb-10 md:mb-0">
-                    <img src="/laptop2.jpg" alt="Working on laptop" class="rounded-lg shadow-xl">
+                    <img src="images/laptop2.jpg" alt="Working on laptop" class="rounded-lg shadow-xl">
                 </div>
                 <div class="md:w-1/2 md:pl-10">
                     <h3 class="text-2xl font-bold mb-4">My Journey</h3>
@@ -84,17 +86,16 @@
                         My journey spans building APIs, deploying cloud-native apps, 
                         and mentoring students to national success in tech competitions. 
                         I’ve earned multiple certifications in backend development, 
-                        cloud computing, and cybersecurity, and I’ve had the privilege 
-                        of leading as a Music Director, 
+                        cloud computing, and cybersecurity,
                         showcasing my ability to plan, organize, and inspire.
                     </p>
                     <p class="mb-6" style="color: var(--text-secondary);">
-                        Currently, I’m focused on building impactful solutions—from a 
+                        <!-- Currently, I’m focused on building impactful solutions, from a 
                         SaaS result management system for schools to a Telegram bot that 
                         fetches Bible verses with AI. Whether it's Node.js, Python, Docker,
                          or PostgreSQL, I love creating clean, 
                         efficient, and scalable systems that solve real-world problems.
-                        Let’s build something great together.
+                        Let’s build something great together. -->
                     </p>
                     <div class="flex space-x-4 mb-6">
                         <a href="#" style="color: var(--text-secondary);" class="hover:text-blue-600 transition duration-300">
@@ -107,7 +108,7 @@
                             <i class="fab fa-twitter text-2xl"></i>
                         </a>
                     </div>
-                    <a href="#" class="inline-block font-bold py-2 px-4 rounded transition duration-300" style="background-color: var(--bg-accent); color: var(--text-primary);">
+                    <a href="https://drive.google.com/file/d/1PqbJt2yu7GfG7rkwxH-X4KdAGcupZL0V/view?usp=sharing" class="inline-block font-bold py-2 px-4 rounded transition duration-300" style="background-color: var(--bg-accent); color: var(--text-primary);">
                         Download Resume <i class="fas fa-download ml-2"></i>
                     </a>
                 </div>
@@ -192,10 +193,6 @@
                     <i class="fas fa-table text-4xl mb-4 text-blue-500"></i>
                     <h3 class="text-xl font-bold mb-2">Kubernetes</h3>
                 </div>
-                <div class="skill-card">
-                    <i class="fas fa-table text-4xl mb-4 text-blue-500"></i>
-                    <h3 class="text-xl font-bold mb-2">Github Actions</h3>
-                </div>
                 
                 
             </div>
@@ -279,6 +276,107 @@
                             <span class="tech-tag">JavaScript</span>
                             <span class="tech-tag">API</span>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Blog Section -->
+    <section id="blog" class="py-20 section-light">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16">My Blogs</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Post 1 -->
+                <div class="project-card">
+                    <div class="relative overflow-hidden rounded-t-lg">
+                        <img src="/images/transaction management.webp"  class="w-full h-64 object-cover transition duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition duration-300">
+                            <a href="https://medium.com/@anaelejoshua/ensuring-reliable-data-in-your-application-database-with-transaction-management-a-guide-to-passing-81f9f61e7120" class="text-white font-bold py-2 px-4 rounded-lg mx-2 transition duration-300" style="background-color: var(--accent-color);">
+                                <i class="fas fa-eye mr-2"></i> View
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-6 rounded-b-lg project-card-content">
+                        <h3 class="text-xl font-bold mb-2">Ensuring Reliable Data in Your Application Database with Transaction Management: A Guide to Passing the ACID Test</h3>
+                        
+                    </div>
+                </div>
+                
+                <!-- Post 2 -->
+                
+                <div class="project-card">
+                    <div class="relative overflow-hidden rounded-t-lg">
+                        <img src="/images/understanding_c_libraries.webp"  class="w-full h-64 object-cover transition duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition duration-300">
+                            <a href="https://medium.com/@anaelejoshua/understanding-and-creating-libraries-in-c-d96ef8e1ef74" class="text-white font-bold py-2 px-4 rounded-lg mx-2 transition duration-300" style="background-color: var(--accent-color);">
+                                <i class="fas fa-eye mr-2"></i> View
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-6 rounded-b-lg project-card-content">
+                        <h3 class="text-xl font-bold mb-2">Understanding and Creating Libraries in C</h3>
+                        
+                    </div>
+                </div>
+                <!-- Post 3 -->
+                <div class="project-card">
+                    <div class="relative overflow-hidden rounded-t-lg">
+                        <img src="/images/termux.webp"  class="w-full h-64 object-cover transition duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition duration-300">
+                            <a href="https://medium.com/@anaelejoshua/how-to-run-c-c-python-on-your-phone-using-termux-3e20b13d9c" class="text-white font-bold py-2 px-4 rounded-lg mx-2 transition duration-300" style="background-color: var(--accent-color);">
+                                <i class="fas fa-eye mr-2"></i> View
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-6 rounded-b-lg project-card-content">
+                        <h3 class="text-xl font-bold mb-2">How to Run C/C++/ Python on your phone Using Termux</h3>
+                        
+                    </div>
+                </div>
+                <!-- blog 4 -->
+                 <div class="project-card">
+                    <div class="relative overflow-hidden rounded-t-lg">
+                        <img src="/images/termux.webp"  class="w-full h-64 object-cover transition duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition duration-300">
+                            <a href="https://medium.com/@anaelejoshua/seamlessly-integrate-termux-with-your-code-editor-for-web-development-on-android-9f6270bbc242" class="text-white font-bold py-2 px-4 rounded-lg mx-2 transition duration-300" style="background-color: var(--accent-color);">
+                                <i class="fas fa-eye mr-2"></i> View
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-6 rounded-b-lg project-card-content">
+                        <h3 class="text-xl font-bold mb-2">Seamlessly Integrate Termux with Your Code Editor for Web Development on Android.</h3>
+                        
+                    </div>
+                </div>
+                <!-- blog 5 -->
+                 <div class="project-card">
+                    <div class="relative overflow-hidden rounded-t-lg">
+                        <img src="/images/demystifying http.jpeg"  class="w-full h-64 object-cover transition duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition duration-300">
+                            <a href="https://coderbro.hashnode.dev/demystifying-http-dummys-guide-to-understanding-the-webs-backbone" class="text-white font-bold py-2 px-4 rounded-lg mx-2 transition duration-300" style="background-color: var(--accent-color);">
+                                <i class="fas fa-eye mr-2"></i> View
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-6 rounded-b-lg project-card-content">
+                        <h3 class="text-xl font-bold mb-2">Demystifying HTTP: Dummy's Guide to Understanding the Web's Backbone</h3>
+                        
+                    </div>
+                </div>
+                <!-- blog 6 -->
+                 <div class="project-card">
+                    <div class="relative overflow-hidden rounded-t-lg">
+                        <img src="/images/demystifying http2.jpeg"  class="w-full h-64 object-cover transition duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition duration-300">
+                            <a href=https://coderbro.hashnode.dev/demystifying-http-2-dummys-guide-to-understanding-the-webs-backbone" class="text-white font-bold py-2 px-4 rounded-lg mx-2 transition duration-300" style="background-color: var(--accent-color);">
+                                <i class="fas fa-eye mr-2"></i> View
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-6 rounded-b-lg project-card-content">
+                        <h3 class="text-xl font-bold mb-2">
+Demystifying HTTP 2: Dummy's Guide to Understanding the Web's Backbone</h3>
+                        
                     </div>
                 </div>
             </div>
