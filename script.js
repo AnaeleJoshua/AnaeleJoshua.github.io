@@ -1,7 +1,7 @@
 // Wait for the DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
     // Theme toggle functionality
-    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggle = document.getElementById("theme-toggle");
     const themeToggleMobile = document.getElementById('theme-toggle-mobile');
     const htmlElement = document.documentElement;
     const themeIcon = themeToggle.querySelector('i');
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Toggle theme function
     function toggleTheme() {
-        if (htmlElement.classList.contains('dark-theme')) {
+        if (htmlElement.classList.contains('dark')) {
             enableLightMode();
         } else {
             enableDarkMode();
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Enable dark mode
     function enableDarkMode() {
-        htmlElement.classList.add('dark-theme');
+        htmlElement.classList.add('dark');
         themeIcon.classList.remove('fa-sun');
         themeIcon.classList.add('fa-moon');
         themeIconMobile.classList.remove('fa-sun');
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Enable light mode
     function enableLightMode() {
-        htmlElement.classList.remove('dark-theme');
+        htmlElement.classList.remove('dark');
         themeIcon.classList.remove('fa-moon');
         themeIcon.classList.add('fa-sun');
         themeIconMobile.classList.remove('fa-moon');

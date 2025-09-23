@@ -1,97 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Josh's Portfolio</title>
-    <link rel="stylesheet" href="styles.css" />
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Josh Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 </head>
-<body>
-    <header>
-        <nav class="navbar">
-            <div class="logo">Josh</div>
-            <ul class="nav-links">
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#certifications" class="nav-link">Certifications</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-            <button id="theme-toggle" class="theme-toggle"><i class="fas fa-sun"></i></button>
-            <button id="mobile-menu-button" class="mobile-menu-button"><i class="fas fa-bars"></i></button>
-        </nav>
-        <div id="mobile-menu" class="mobile-menu hidden">
-            <a href="#about" class="mobile-link">About</a>
-            <a href="#skills" class="mobile-link">Skills</a>
-            <a href="#certifications" class="mobile-link">Certifications</a>
-            <a href="#projects" class="mobile-link">Projects</a>
-            <a href="#experience" class="mobile-link">Experience</a>
-            <a href="#contact" class="mobile-link">Contact</a>
-            <button id="theme-toggle-mobile" class="theme-toggle"><i class="fas fa-sun"></i></button>
+<body class="bg-white text-gray-800 leading-relaxed">
+
+  <!-- Navigation -->
+  <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md shadow-sm">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#" class="text-xl font-semibold tracking-tight">AJ</a>
+      <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
+        <a href="#home" class="hover:text-blue-600">Home</a>
+        <a href="#about" class="hover:text-blue-600">About</a>
+        <a href="#skills" class="hover:text-blue-600">Skills</a>
+        <a href="#projects" class="hover:text-blue-600">Projects</a>
+        <a href="#contact" class="hover:text-blue-600">Contact</a>
+        <a href="#blog" class="hover:text-blue-600">Blog</a>
+        <button id="theme-toggle" aria-label="Toggle theme">
+          <i class="fas fa-sun text-sm"></i>
+        </button>
+      </div>
+      <div class="md:hidden flex items-center space-x-4">
+        <button id="theme-toggle-mobile" aria-label="Toggle theme">
+          <i class="fas fa-sun text-sm"></i>
+        </button>
+        <button id="mobile-menu-button">
+          <i class="fas fa-bars text-lg"></i>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow">
+      <div class="flex flex-col space-y-4 px-6 py-4 text-sm font-medium">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <a href="#blog">Blog</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="home" class="min-h-screen flex items-center justify-center pt-24">
+    <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <h1 class="text-4xl font-bold mb-4">Hi, I'm 
+          <span class="text-blue-600">Joshua Anaele</span>
+        </h1>
+        <h2 class="text-lg text-gray-600 mb-6">
+          Backend Engineer • Technical Writer • Learning AI/ML
+        </h2>
+        <p class="text-sm text-gray-600 mb-6">
+          I am Josh Anaele, a backend developer passionate about scalable systems, clean code, and seamless user experiences.
+        </p>
+        <div class="flex space-x-4">
+          <a href="#projects" class="px-5 py-2 bg-blue-600 text-white rounded-md text-sm hover:bg-blue-700 transition">View My Work</a>
+          <a href="#contact" class="px-5 py-2 border border-blue-600 text-blue-600 rounded-md text-sm hover:bg-blue-50 transition">Contact Me</a>
         </div>
-    </header>
+      </div>
+      <div class="flex justify-center">
+        <img src="images/josh.jpg" alt="Josh" class="rounded-full h-56 w-56 object-cover shadow-md border-4 border-blue-600">
+      </div>
+    </div>
+  </section>
 
-    <main>
-        <section id="about">
-            <h2>About Me</h2>
-            <p>I am Joshs Anaele, a backend developer with a passion for scalable systems, clean code, and seamless user experience. 
-                With a background in Physics Electronics and an MSc in Information Technology, 
-                I blend analytical skills with modern tech expertise to deliver impactful software solutions.</p>
-        </section>
+  <!-- About -->
+  <section id="about" class="py-24 bg-gray-50">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-semibold text-center mb-12">About Me</h2>
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <img src="images/laptop2.jpg" alt="Working on laptop" class="rounded-lg shadow-lg">
+        <div>
+          <h3 class="text-xl font-semibold mb-4">My Journey</h3>
+          <p class="text-sm text-gray-700 mb-4">
+            I’m a Software Engineer with strong backend skills, system design expertise, and a growing passion for AI/ML. My academic background in Physics Electronics and MSc in IT drives my problem-solving and analytical thinking.
+          </p>
+          <p class="text-sm text-gray-700 mb-6">
+            From building APIs and deploying cloud-native apps to mentoring students, I’m committed to learning and creating impactful solutions.
+          </p>
+          <div class="flex space-x-4 mb-6">
+            <a href="https://github.com/AnaeleJoshua" class="text-gray-600 hover:text-blue-600"><i class="fab fa-github text-lg"></i></a>
+            <a href="https://www.linkedin.com/in/joshua-anaele-2a917ab9/" class="text-gray-600 hover:text-blue-600"><i class="fab fa-linkedin text-lg"></i></a>
+            <a href="#" class="text-gray-600 hover:text-blue-600"><i class="fab fa-twitter text-lg"></i></a>
+          </div>
+          <a href="https://drive.google.com/file/d/1PqbJt2yu7GfG7rkwxH-X4KdAGcupZL0V/view?usp=sharing" 
+             class="px-4 py-2 bg-blue-600 text-white rounded-md text-sm hover:bg-blue-700 transition">
+            Download Resume <i class="fas fa-download ml-1"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <section id="skills">
-            <h2>Skills</h2>
-            <ul>
-                <li>Node.js, Express, FastAPI</li>
-                <li>PostgreSQL, MongoDB</li>
-                <li>Docker, Vercel, WSL2</li>
-                <li>React, Chakra UI, HTML/CSS/JS</li>
-                <li>Python, C#, ASP.NET Core</li>
-            </ul>
-        </section>
+  <!-- Skills -->
+  <section id="skills" class="py-24">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-semibold text-center mb-12">Skills</h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 text-center">
+        <div><i class="fab fa-html5 text-3xl text-orange-500 mb-2"></i><p class="text-sm font-medium">HTML5</p></div>
+        <div><i class="fab fa-css3-alt text-3xl text-blue-500 mb-2"></i><p class="text-sm font-medium">CSS3</p></div>
+        <div><i class="fab fa-js-square text-3xl text-yellow-500 mb-2"></i><p class="text-sm font-medium">JavaScript</p></div>
+        <div><i class="fab fa-node-js text-3xl text-green-500 mb-2"></i><p class="text-sm font-medium">Node.js</p></div>
+        <div><i class="fas fa-database text-3xl text-purple-500 mb-2"></i><p class="text-sm font-medium">SQL & NoSQL</p></div>
+        <div><i class="fas fa-cloud text-3xl text-blue-400 mb-2"></i><p class="text-sm font-medium">Cloud & DevOps</p></div>
+        <div><i class="fas fa-wind text-3xl text-teal-500 mb-2"></i><p class="text-sm font-medium">Tailwind CSS</p></div>
+        <div><i class="fas fa-code text-3xl text-gray-700 mb-2"></i><p class="text-sm font-medium">C# & .NET</p></div>
+        <div><i class="fas fa-brain text-3xl text-pink-500 mb-2"></i><p class="text-sm font-medium">AI/ML Basics</p></div>
+        <div><i class="fas fa-pencil-alt text-3xl text-indigo-500 mb-2"></i><p class="text-sm font-medium">Technical Writing</p></div>
+      </div>
+    </div>
+  </section>
 
-        <section id="certifications">
-            <h2>Certifications</h2>
-            <ul>
-                <li>Meta - Introduction to Backend Development</li>
-                <li>Coursera - Introduction to Cloud Computing</li>
-                <li>Google Cloud Skill Boost - Cloud Infrastructure</li>
-                <li>Cisco - Introduction to Cybersecurity</li>
-            </ul>
-        </section>
+  <!-- Projects -->
+  <section id="projects" class="py-24 bg-gray-50">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-semibold text-center mb-12">Projects</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white shadow rounded-lg overflow-hidden">
+          <img src="images/project1.jpg" class="w-full h-48 object-cover">
+          <div class="p-4">
+            <h3 class="text-sm font-semibold mb-1">E-commerce Website</h3>
+            <p class="text-xs text-gray-600 mb-2">A responsive e-commerce platform with filtering & cart functionality.</p>
+            <a href="#" class="text-blue-600 text-sm hover:underline">View Project</a>
+          </div>
+        </div>
+        <div class="bg-white shadow rounded-lg overflow-hidden">
+          <img src="images/project2.jpg" class="w-full h-48 object-cover">
+          <div class="p-4">
+            <h3 class="text-sm font-semibold mb-1">Organization Management App</h3>
+            <p class="text-xs text-gray-600 mb-2">A full-stack app with PostgreSQL, Docker, and CI/CD pipeline.</p>
+            <a href="#" class="text-blue-600 text-sm hover:underline">View Project</a>
+          </div>
+        </div>
+        <div class="bg-white shadow rounded-lg overflow-hidden">
+          <img src="images/project3.jpg" class="w-full h-48 object-cover">
+          <div class="p-4">
+            <h3 class="text-sm font-semibold mb-1">Pregnancy Expert Desktop App</h3>
+            <p class="text-xs text-gray-600 mb-2">ElectronJS-based desktop app with SQLite integration.</p>
+            <a href="#" class="text-blue-600 text-sm hover:underline">View Project</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <section id="projects">
-            <h2>Projects</h2>
-            <div class="project-card">School Result Management SaaS</div>
-            <div class="project-card">Early Pregnancy Detection App with Electron & SQLite</div>
-            <div class="project-card">React-NestJS Book Dashboard</div>
-            <div class="project-card">Video Editor Web App (In Progress)</div>
-            <div class="project-card">Telegram Bible Verse Bot using OpenAI</div>
-        </section>
+  <!-- Contact -->
+  <section id="contact" class="py-24">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-semibold text-center mb-12">Get In Touch</h2>
+      <div class="grid md:grid-cols-2 gap-12">
+        <div>
+          <h3 class="text-lg font-semibold mb-3">Contact Info</h3>
+          <p class="text-sm text-gray-600 mb-4">Open to collaborations, ideas, or opportunities.</p>
+          <p class="text-sm"><i class="fas fa-map-marker-alt text-blue-600 mr-2"></i>Lagos, Nigeria</p>
+          <p class="text-sm"><i class="fas fa-envelope text-blue-600 mr-2"></i>anaelejoshua@gmail.com</p>
+        </div>
+        <form class="space-y-4 bg-gray-50 p-6 rounded-lg shadow">
+          <input type="text" placeholder="Name" class="w-full p-2 border rounded text-sm"/>
+          <input type="email" placeholder="Email" class="w-full p-2 border rounded text-sm"/>
+          <textarea placeholder="Message" class="w-full p-2 border rounded text-sm" rows="4"></textarea>
+          <button class="px-4 py-2 bg-blue-600 text-white rounded text-sm hover:bg-blue-700">Send</button>
+        </form>
+      </div>
+    </div>
+  </section>
 
-        <section id="experience">
-            <h2>Experience</h2>
-            <ul>
-                <li>Music Director, Choir - Event Coordination & Tech</li>
-                <li>Tech Coach - Led girls to state win in Fed Ministry innovation competition</li>
-                <li>Teaching - High School Math, Physics & Programming</li>
-            </ul>
-        </section>
-
-        <section id="contact">
-            <h2>Contact Me</h2>
-            <form id="contact-form">
-                <input type="text" id="name" placeholder="Name" required />
-                <input type="email" id="email" placeholder="Email" required />
-                <input type="text" id="subject" placeholder="Subject" required />
-                <textarea id="message" placeholder="Message" required></textarea>
-                <button type="submit">Send Message</button>
-            </form>
-        </section>
-    </main>
-
-    <script src="script.js"></script>
 </body>
 </html>

@@ -1,479 +1,407 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Josh Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Josh Portfolio</title>
+  <!-- Tailwind -->
+  <script>
+    // Tailwind CDN config: enable class-based dark mode
+    window.tailwind = { config: { darkMode: 'class' } };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 </head>
-<body>
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50" style="background-color: var(--bg-secondary); box-shadow: var(--card-shadow); transition: background-color 0.3s, box-shadow 0.3s;">
-        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold" style="color: var(--text-primary);">AJ</a>
-            <div class="hidden md:flex items-center space-x-10">
-                <a href="#home" class="nav-link">Home</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#skills" class="nav-link">Skills</a>
-                <a href="#projects" class="nav-link">Projects</a>
-                <a href="#contact" class="nav-link">Contact</a>
-                <a href="#blog" class="nav-link">Blog</a>
-                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-                    <i class="fas fa-sun"></i>
-                </button>
-            </div>
-            <div class="md:hidden flex items-center space-x-4">
-                <button id="theme-toggle-mobile" class="theme-toggle" aria-label="Toggle theme">
-                    <i class="fas fa-sun"></i>
-                </button>
-                <button id="mobile-menu-button" class="focus:outline-none">
-                    <i class="fas fa-bars text-2xl" style="color: var(--text-primary);"></i>
-                </button>
-            </div>
-        </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="md:hidden hidden" style="background-color: var(--bg-secondary); transition: background-color 0.3s;">
-            <div class="container mx-auto px-6 py-3 flex flex-col space-y-4">
-                <a href="#home" class="nav-link mobile-link">Home</a>
-                <a href="#about" class="nav-link mobile-link">About</a>
-                <a href="#skills" class="nav-link mobile-link">Skills</a>
-                <a href="#projects" class="nav-link mobile-link">Projects</a>
-                <a href="#contact" class="nav-link mobile-link">Contact</a>
-                <a href="#blog" class="nav-link mobile-link">Blog</a>
-            </div>
-        </div>
-    </nav>
+<body class="bg-white text-gray-800 dark:bg-neutral-950 dark:text-neutral-100 leading-relaxed antialiased">
 
-    <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center justify-center pt-16 section-dark">
-        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
-            <div class="md:w-1/2 flex flex-col items-start">
-                <h1 class="text-5xl font-bold leading-tight mb-4">Hi, I'm <span style="color: var(--accent-color);">Joshua Anaele</span></h1>
-                <h2 class="text-2xl mb-6" style="color: var(--text-secondary);">Backend Engineer || Technical Writer || Learning AI/ML </h2>
-                <p class="text-lg mb-8" style="color: var(--text-secondary);">I am Josh Anaele, a backend developer with a passion for scalable systems, clean code, and seamless user experience.</p>
-                <div class="flex space-x-4">
-                    <a href="#projects" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300" style="background-color: var(--accent-color); hover:background-color var(--accent-hover)">View My Work</a>
-                    <a href="#contact" class="font-bold py-3 px-6 rounded-lg transition duration-300" style="border: 2px solid var(--accent-color); color: var(--accent-color);">Contact Me</a>
-                </div>
-            </div>
-            <div class="md:w-1/2 mt-10 md:mt-0 flex justify-center">
-                <img src="images/josh.jpg" alt="John Doe" class="rounded-full h-64 w-64 object-cover shadow-xl" style="border: 4px solid var(--accent-color);">
-            </div>
-        </div>
-    </section>
+  <!-- Navigation -->
+  <nav class="fixed w-full z-50 bg-white/80 dark:bg-neutral-900/70 backdrop-blur-md shadow-sm">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#" class="text-base sm:text-lg font-semibold tracking-tight">AJ</a>
+      <div class="hidden md:flex items-center space-x-8 text-xs sm:text-sm font-medium">
+        <a href="#home" class="hover:text-blue-600 dark:hover:text-blue-400">Home</a>
+        <a href="#about" class="hover:text-blue-600 dark:hover:text-blue-400">About</a>
+        <a href="#skills" class="hover:text-blue-600 dark:hover:text-blue-400">Skills</a>
+        <a href="#projects" class="hover:text-blue-600 dark:hover:text-blue-400">Projects</a>
+        <a href="#contact" class="hover:text-blue-600 dark:hover:text-blue-400">Contact</a>
+        <a href="#blog" class="hover:text-blue-600 dark:hover:text-blue-400">Blog</a>
+        <button id="theme-toggle" aria-label="Toggle theme" class="p-2 rounded hover:bg-black/5 dark:hover:bg-white/5">
+          <i id="theme-icon-desktop" class="fas fa-sun text-sm"></i>
+        </button>
+      </div>
+      <div class="md:hidden flex items-center space-x-3">
+        <button id="theme-toggle-mobile" aria-label="Toggle theme" class="p-2 rounded hover:bg-black/5 dark:hover:bg-white/5">
+          <i id="theme-icon-mobile" class="fas fa-sun text-sm"></i>
+        </button>
+        <button id="mobile-menu-button" aria-controls="mobile-menu" aria-expanded="false" class="p-2 rounded hover:bg-black/5 dark:hover:bg-white/5">
+          <i class="fas fa-bars text-base"></i>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-neutral-900 shadow">
+      <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col space-y-4 text-sm font-medium">
+        <a href="#home" class="hover:text-blue-600 dark:hover:text-blue-400">Home</a>
+        <a href="#about" class="hover:text-blue-600 dark:hover:text-blue-400">About</a>
+        <a href="#skills" class="hover:text-blue-600 dark:hover:text-blue-400">Skills</a>
+        <a href="#projects" class="hover:text-blue-600 dark:hover:text-blue-400">Projects</a>
+        <a href="#contact" class="hover:text-blue-600 dark:hover:text-blue-400">Contact</a>
+        <a href="#blog" class="hover:text-blue-600 dark:hover:text-blue-400">Blog</a>
+      </div>
+    </div>
+  </nav>
 
-    <!-- About Section -->
-    <section id="about" class="py-20 section-light">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-16">About Me</h2>
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-10 md:mb-0">
-                    <img src="images/laptop2.jpg" alt="Working on laptop" class="rounded-lg shadow-xl">
-                </div>
-                <div class="md:w-1/2 md:pl-10">
-                    <h3 class="text-2xl font-bold mb-4">My Journey</h3>
-                    <p class="mb-6" style="color: var(--text-secondary);">
-                        I’m a passionate Software Engineer with a strong foundation 
-                        in backend development,
-                         a knack for system design, and a growing interest in AI/ML integration. 
-                         With a BSc in Physics Electronics and currently pursuing an MSc in Information 
-                         Technology, I bring a unique mix of analytical thinking, creative problem-solving,
-                          and a deep commitment to continuous learning.
-                    </p>
-                    <p class="mb-6" style="color: var(--text-secondary);">
-                        My journey spans building APIs, deploying cloud-native apps, 
-                        and mentoring students to national success in tech competitions. 
-                        I’ve earned multiple certifications in backend development, 
-                        cloud computing, and cybersecurity,
-                        showcasing my ability to plan, organize, and inspire.
-                    </p>
-                    <p class="mb-6" style="color: var(--text-secondary);">
-                        <!-- Currently, I’m focused on building impactful solutions, from a 
-                        SaaS result management system for schools to a Telegram bot that 
-                        fetches Bible verses with AI. Whether it's Node.js, Python, Docker,
-                         or PostgreSQL, I love creating clean, 
-                        efficient, and scalable systems that solve real-world problems.
-                        Let’s build something great together. -->
-                    </p>
-                    <div class="flex space-x-4 mb-6">
-                        <a href="#" style="color: var(--text-secondary);" class="hover:text-blue-600 transition duration-300">
-                            <i class="fab fa-github text-2xl"></i>
-                        </a>
-                        <a href="#" style="color: var(--text-secondary);" class="hover:text-blue-600 transition duration-300">
-                            <i class="fab fa-linkedin text-2xl"></i>
-                        </a>
-                        <a href="#" style="color: var(--text-secondary);" class="hover:text-blue-600 transition duration-300">
-                            <i class="fab fa-twitter text-2xl"></i>
-                        </a>
-                    </div>
-                    <a href="https://drive.google.com/file/d/1PqbJt2yu7GfG7rkwxH-X4KdAGcupZL0V/view?usp=sharing" class="inline-block font-bold py-2 px-4 rounded transition duration-300" style="background-color: var(--bg-accent); color: var(--text-primary);">
-                        Download Resume <i class="fas fa-download ml-2"></i>
-                    </a>
-                </div>
-            </div>
+  <!-- Hero -->
+  <section id="home" class="min-h-screen flex items-center justify-center pt-24">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <h1 class="text-3xl sm:text-4xl font-bold mb-4">Hi, I'm
+          <span class="text-blue-600 dark:text-blue-400">Joshua Anaele</span>
+        </h1>
+        <h2 class="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-6">
+          Backend Engineer • Technical Writer • Learning AI/ML
+        </h2>
+        <p class="text-sm text-gray-600 dark:text-gray-300 mb-6 max-w-prose">
+          I am Josh Anaele, a backend developer with a passion for scalable systems, clean code, and seamless user experiences.
+        </p>
+        <div class="flex gap-3">
+          <a href="#projects" class="px-4 py-2 bg-blue-600 text-white rounded-md text-xs sm:text-sm hover:bg-blue-700 transition">View My Work</a>
+          <a href="#contact" class="px-4 py-2 border border-blue-600 text-blue-600 rounded-md text-xs sm:text-sm hover:bg-blue-50 dark:hover:bg-blue-950/30 transition">Contact Me</a>
         </div>
-    </section>
+      </div>
+      <div class="flex justify-center">
+        <img src="images/josh.jpg" alt="Portrait of Joshua Anaele" class="rounded-full h-48 w-48 sm:h-56 sm:w-56 object-cover shadow-md border-4 border-blue-600 dark:border-blue-400">
+      </div>
+    </div>
+  </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="py-20 section-dark">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-16">My Skills</h2>
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                <div class="skill-card">
-                    <i class="fab fa-html5 text-4xl mb-4 text-orange-500"></i>
-                    <h3 class="text-xl font-bold mb-2">HTML5</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fab fa-css3-alt text-4xl mb-4 text-blue-500"></i>
-                    <h3 class="text-xl font-bold mb-2">CSS3</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fab fa-node-js text-4xl mb-4 text-green-600"></i>
-                    <h3 class="text-xl font-bold mb-2">Node.js</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-wind text-4xl mb-4 text-teal-500"></i>
-                    <h3 class="text-xl font-bold mb-2">Tailwind CSS</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-server text-4xl mb-4 text-purple-500"></i>
-                    <h3 class="text-xl font-bold mb-2">Express.js</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fab fa-git-alt text-4xl mb-4 text-red-500"></i>
-                    <h3 class="text-xl font-bold mb-2">Git</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fab fa-github text-4xl mb-4 text-black"></i>
-                    <h3 class="text-xl font-bold mb-2">GitHub</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fab fa-python text-4xl mb-4 text-blue-700"></i>
-                    <h3 class="text-xl font-bold mb-2">Python</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-bolt text-4xl mb-4 text-green-600"></i>
-                    <h3 class="text-xl font-bold mb-2">FastAPI</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fab fa-docker text-4xl mb-4 text-blue-500"></i>
-                    <h3 class="text-xl font-bold mb-2">Docker</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-cogs text-4xl mb-4 text-gray-600"></i>
-                    <h3 class="text-xl font-bold mb-2">GitHub Actions</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-network-wired text-4xl mb-4 text-green-600"></i>
-                    <h3 class="text-xl font-bold mb-2">NGINX</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-database text-4xl mb-4 text-red-600"></i>
-                    <h3 class="text-xl font-bold mb-2">Redis</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-database text-4xl mb-4 text-indigo-600"></i>
-                    <h3 class="text-xl font-bold mb-2">PostgreSQL</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-leaf text-4xl mb-4 text-green-700"></i>
-                    <h3 class="text-xl font-bold mb-2">MongoDB</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-project-diagram text-4xl mb-4 text-yellow-600"></i>
-                    <h3 class="text-xl font-bold mb-2">Sequelize</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-table text-4xl mb-4 text-blue-500"></i>
-                    <h3 class="text-xl font-bold mb-2">SQLite</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-table text-4xl mb-4 text-blue-500"></i>
-                    <h3 class="text-xl font-bold mb-2">Kubernetes</h3>
-                </div>
-                
-                
-            </div>
+  <!-- About -->
+  <section id="about" class="py-24 bg-gray-50 dark:bg-neutral-900/40">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-2xl sm:text-3xl font-semibold text-center mb-12">About Me</h2>
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <img src="images/laptop2.jpg" alt="Working on laptop" class="rounded-lg shadow-lg">
+        <div>
+          <h3 class="text-lg sm:text-xl font-semibold mb-4">My Journey</h3>
+          <p class="text-sm text-gray-700 dark:text-gray-300 mb-4">
+            I’m a Software Engineer with strong backend skills, system design expertise, and a growing passion for AI/ML. My background in Physics Electronics and an ongoing MSc in IT fuel my problem-solving and analytical thinking.
+          </p>
+          <p class="text-sm text-gray-700 dark:text-gray-300 mb-6">
+            From building APIs and deploying cloud-native apps to mentoring students to national success, I’m committed to learning and creating impactful solutions.
+          </p>
+          <div class="flex space-x-4 mb-6">
+            <a href="https://github.com/AnaeleJoshua" target="_blank" rel="noopener" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"><i class="fab fa-github text-lg"></i></a>
+            <a href="https://www.linkedin.com/in/joshua-anaele-2a917ab9/" target="_blank" rel="noopener" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"><i class="fab fa-linkedin text-lg"></i></a>
+            <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"><i class="fab fa-twitter text-lg"></i></a>
+          </div>
+          <a href="https://drive.google.com/file/d/1PqbJt2yu7GfG7rkwxH-X4KdAGcupZL0V/view?usp=sharing" target="_blank" rel="noopener"
+             class="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-md text-xs sm:text-sm hover:bg-blue-700 transition">
+            <span>Download Resume</span> <i class="fas fa-download"></i>
+          </a>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-20 section-light">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-16">My Projects</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                <!-- Project 1 -->
-                <div class="project-card">
-                    <div class="relative overflow-hidden rounded-t-lg">
-                        <img src="/placeholder.svg?height=300&width=500" alt="E-commerce Website" class="w-full h-64 object-cover transition duration-500 hover:scale-110">
-                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition duration-300">
-                            <a href="#" class="text-white font-bold py-2 px-4 rounded-lg mx-2 transition duration-300" style="background-color: var(--accent-color);">
-                                <i class="fas fa-eye mr-2"></i> View
-                            </a>
-                            <a href="#" class="text-white bg-gray-700 hover:bg-gray-800 font-bold py-2 px-4 rounded-lg mx-2 transition duration-300">
-                                <i class="fab fa-github mr-2"></i> Code
-                            </a>
-                        </div>
-                    </div>
-                    <div class="p-6 rounded-b-lg project-card-content">
-                        <h3 class="text-xl font-bold mb-2">E-commerce Website</h3>
-                        <p class="mb-4" style="color: var(--text-secondary);">A fully responsive e-commerce platform with product filtering and cart functionality.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="tech-tag">HTML</span>
-                            <span class="tech-tag">CSS</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">Tailwind</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Project 2 -->
-                <div class="project-card">
-                    <div class="relative overflow-hidden rounded-t-lg">
-                        <img src="/placeholder.svg?height=300&width=500" alt="Portfolio Template" class="w-full h-64 object-cover transition duration-500 hover:scale-110">
-                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition duration-300">
-                            <a href="#" class="text-white font-bold py-2 px-4 rounded-lg mx-2 transition duration-300" style="background-color: var(--accent-color);">
-                                <i class="fas fa-eye mr-2"></i> View
-                            </a>
-                            <a href="#" class="text-white bg-gray-700 hover:bg-gray-800 font-bold py-2 px-4 rounded-lg mx-2 transition duration-300">
-                                <i class="fab fa-github mr-2"></i> Code
-                            </a>
-                        </div>
-                    </div>
-                    <div class="p-6 rounded-b-lg project-card-content">
-                        <h3 class="text-xl font-bold mb-2">Portfolio Template</h3>
-                        <p class="mb-4" style="color: var(--text-secondary);">A customizable portfolio template for creative professionals with smooth animations.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="tech-tag">HTML</span>
-                            <span class="tech-tag">CSS</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">GSAP</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Project 3 -->
-                <div class="project-card">
-                    <div class="relative overflow-hidden rounded-t-lg">
-                        <img src="/placeholder.svg?height=300&width=500" alt="Weather App" class="w-full h-64 object-cover transition duration-500 hover:scale-110">
-                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition duration-300">
-                            <a href="#" class="text-white font-bold py-2 px-4 rounded-lg mx-2 transition duration-300" style="background-color: var(--accent-color);">
-                                <i class="fas fa-eye mr-2"></i> View
-                            </a>
-                            <a href="#" class="text-white bg-gray-700 hover:bg-gray-800 font-bold py-2 px-4 rounded-lg mx-2 transition duration-300">
-                                <i class="fab fa-github mr-2"></i> Code
-                            </a>
-                        </div>
-                    </div>
-                    <div class="p-6 rounded-b-lg project-card-content">
-                        <h3 class="text-xl font-bold mb-2">Weather App</h3>
-                        <p class="mb-4" style="color: var(--text-secondary);">A weather application that fetches real-time data from an API with location detection.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="tech-tag">HTML</span>
-                            <span class="tech-tag">CSS</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">API</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Blog Section -->
-    <section id="blog" class="py-20 section-light">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-16">My Blogs</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                <!-- Post 1 -->
-                <div class="project-card">
-                    <div class="relative overflow-hidden rounded-t-lg">
-                        <img src="/images/transaction management.webp"  class="w-full h-64 object-cover transition duration-500 hover:scale-110">
-                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition duration-300">
-                            <a href="https://medium.com/@anaelejoshua/ensuring-reliable-data-in-your-application-database-with-transaction-management-a-guide-to-passing-81f9f61e7120" class="text-white font-bold py-2 px-4 rounded-lg mx-2 transition duration-300" style="background-color: var(--accent-color);">
-                                <i class="fas fa-eye mr-2"></i> View
-                            </a>
-                        </div>
-                    </div>
-                    <div class="p-6 rounded-b-lg project-card-content">
-                        <h3 class="text-xl font-bold mb-2">Ensuring Reliable Data in Your Application Database with Transaction Management: A Guide to Passing the ACID Test</h3>
-                        
-                    </div>
-                </div>
-                
-                <!-- Post 2 -->
-                
-                <div class="project-card">
-                    <div class="relative overflow-hidden rounded-t-lg">
-                        <img src="/images/understanding_c_libraries.webp"  class="w-full h-64 object-cover transition duration-500 hover:scale-110">
-                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition duration-300">
-                            <a href="https://medium.com/@anaelejoshua/understanding-and-creating-libraries-in-c-d96ef8e1ef74" class="text-white font-bold py-2 px-4 rounded-lg mx-2 transition duration-300" style="background-color: var(--accent-color);">
-                                <i class="fas fa-eye mr-2"></i> View
-                            </a>
-                        </div>
-                    </div>
-                    <div class="p-6 rounded-b-lg project-card-content">
-                        <h3 class="text-xl font-bold mb-2">Understanding and Creating Libraries in C</h3>
-                        
-                    </div>
-                </div>
-                <!-- Post 3 -->
-                <div class="project-card">
-                    <div class="relative overflow-hidden rounded-t-lg">
-                        <img src="/images/termux.webp"  class="w-full h-64 object-cover transition duration-500 hover:scale-110">
-                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition duration-300">
-                            <a href="https://medium.com/@anaelejoshua/how-to-run-c-c-python-on-your-phone-using-termux-3e20b13d9c" class="text-white font-bold py-2 px-4 rounded-lg mx-2 transition duration-300" style="background-color: var(--accent-color);">
-                                <i class="fas fa-eye mr-2"></i> View
-                            </a>
-                        </div>
-                    </div>
-                    <div class="p-6 rounded-b-lg project-card-content">
-                        <h3 class="text-xl font-bold mb-2">How to Run C/C++/ Python on your phone Using Termux</h3>
-                        
-                    </div>
-                </div>
-                <!-- blog 4 -->
-                 <div class="project-card">
-                    <div class="relative overflow-hidden rounded-t-lg">
-                        <img src="/images/termux.webp"  class="w-full h-64 object-cover transition duration-500 hover:scale-110">
-                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition duration-300">
-                            <a href="https://medium.com/@anaelejoshua/seamlessly-integrate-termux-with-your-code-editor-for-web-development-on-android-9f6270bbc242" class="text-white font-bold py-2 px-4 rounded-lg mx-2 transition duration-300" style="background-color: var(--accent-color);">
-                                <i class="fas fa-eye mr-2"></i> View
-                            </a>
-                        </div>
-                    </div>
-                    <div class="p-6 rounded-b-lg project-card-content">
-                        <h3 class="text-xl font-bold mb-2">Seamlessly Integrate Termux with Your Code Editor for Web Development on Android.</h3>
-                        
-                    </div>
-                </div>
-                <!-- blog 5 -->
-                 <div class="project-card">
-                    <div class="relative overflow-hidden rounded-t-lg">
-                        <img src="/images/demystifying http.jpeg"  class="w-full h-64 object-cover transition duration-500 hover:scale-110">
-                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition duration-300">
-                            <a href="https://coderbro.hashnode.dev/demystifying-http-dummys-guide-to-understanding-the-webs-backbone" class="text-white font-bold py-2 px-4 rounded-lg mx-2 transition duration-300" style="background-color: var(--accent-color);">
-                                <i class="fas fa-eye mr-2"></i> View
-                            </a>
-                        </div>
-                    </div>
-                    <div class="p-6 rounded-b-lg project-card-content">
-                        <h3 class="text-xl font-bold mb-2">Demystifying HTTP: Dummy's Guide to Understanding the Web's Backbone</h3>
-                        
-                    </div>
-                </div>
-                <!-- blog 6 -->
-                 <div class="project-card">
-                    <div class="relative overflow-hidden rounded-t-lg">
-                        <img src="/images/demystifying http2.jpeg"  class="w-full h-64 object-cover transition duration-500 hover:scale-110">
-                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition duration-300">
-                            <a href=https://coderbro.hashnode.dev/demystifying-http-2-dummys-guide-to-understanding-the-webs-backbone" class="text-white font-bold py-2 px-4 rounded-lg mx-2 transition duration-300" style="background-color: var(--accent-color);">
-                                <i class="fas fa-eye mr-2"></i> View
-                            </a>
-                        </div>
-                    </div>
-                    <div class="p-6 rounded-b-lg project-card-content">
-                        <h3 class="text-xl font-bold mb-2">
-Demystifying HTTP 2: Dummy's Guide to Understanding the Web's Backbone</h3>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- Skills -->
+  <section id="skills" class="py-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-2xl sm:text-3xl font-semibold text-center mb-12">My Skills</h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 text-center">
+        <div class="p-4 rounded-lg bg-white dark:bg-neutral-900 shadow"><i class="fab fa-html5 text-2xl text-orange-500 mb-2"></i><p class="text-sm font-medium">HTML5</p></div>
+        <div class="p-4 rounded-lg bg-white dark:bg-neutral-900 shadow"><i class="fab fa-css3-alt text-2xl text-blue-500 mb-2"></i><p class="text-sm font-medium">CSS3</p></div>
+        <div class="p-4 rounded-lg bg-white dark:bg-neutral-900 shadow"><i class="fab fa-node-js text-2xl text-green-600 mb-2"></i><p class="text-sm font-medium">Node.js</p></div>
+        <div class="p-4 rounded-lg bg-white dark:bg-neutral-900 shadow"><i class="fas fa-wind text-2xl text-teal-500 mb-2"></i><p class="text-sm font-medium">Tailwind CSS</p></div>
+        <div class="p-4 rounded-lg bg-white dark:bg-neutral-900 shadow"><i class="fas fa-server text-2xl text-purple-500 mb-2"></i><p class="text-sm font-medium">Express.js</p></div>
+        <div class="p-4 rounded-lg bg-white dark:bg-neutral-900 shadow"><i class="fab fa-git-alt text-2xl text-red-500 mb-2"></i><p class="text-sm font-medium">Git</p></div>
+        <div class="p-4 rounded-lg bg-white dark:bg-neutral-900 shadow"><i class="fab fa-github text-2xl mb-2"></i><p class="text-sm font-medium">GitHub</p></div>
+        <div class="p-4 rounded-lg bg-white dark:bg-neutral-900 shadow"><i class="fab fa-python text-2xl text-blue-700 mb-2"></i><p class="text-sm font-medium">Python</p></div>
+        <div class="p-4 rounded-lg bg-white dark:bg-neutral-900 shadow"><i class="fas fa-bolt text-2xl text-green-600 mb-2"></i><p class="text-sm font-medium">FastAPI</p></div>
+        <div class="p-4 rounded-lg bg-white dark:bg-neutral-900 shadow"><i class="fab fa-docker text-2xl text-blue-500 mb-2"></i><p class="text-sm font-medium">Docker</p></div>
+        <div class="p-4 rounded-lg bg-white dark:bg-neutral-900 shadow"><i class="fas fa-cogs text-2xl text-gray-600 mb-2"></i><p class="text-sm font-medium">GitHub Actions</p></div>
+        <div class="p-4 rounded-lg bg-white dark:bg-neutral-900 shadow"><i class="fas fa-network-wired text-2xl text-green-600 mb-2"></i><p class="text-sm font-medium">NGINX</p></div>
+        <div class="p-4 rounded-lg bg-white dark:bg-neutral-900 shadow"><i class="fas fa-database text-2xl text-red-600 mb-2"></i><p class="text-sm font-medium">Redis</p></div>
+        <div class="p-4 rounded-lg bg-white dark:bg-neutral-900 shadow"><i class="fas fa-database text-2xl text-indigo-600 mb-2"></i><p class="text-sm font-medium">PostgreSQL</p></div>
+        <div class="p-4 rounded-lg bg-white dark:bg-neutral-900 shadow"><i class="fas fa-leaf text-2xl text-green-700 mb-2"></i><p class="text-sm font-medium">MongoDB</p></div>
+        <div class="p-4 rounded-lg bg-white dark:bg-neutral-900 shadow"><i class="fas fa-project-diagram text-2xl text-yellow-600 mb-2"></i><p class="text-sm font-medium">Sequelize</p></div>
+        <div class="p-4 rounded-lg bg-white dark:bg-neutral-900 shadow"><i class="fas fa-table text-2xl text-blue-500 mb-2"></i><p class="text-sm font-medium">SQLite</p></div>
+        <div class="p-4 rounded-lg bg-white dark:bg-neutral-900 shadow"><i class="fas fa-layer-group text-2xl text-blue-500 mb-2"></i><p class="text-sm font-medium">Kubernetes</p></div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 section-dark">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-16">Get In Touch</h2>
-            <div class="flex flex-col md:flex-row">
-                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
-                    <h3 class="text-2xl font-bold mb-4">Contact Information</h3>
-                    <p class="mb-6" style="color: var(--text-secondary);">Feel free to reach out to me for any questions or opportunities. I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.</p>
-                    <div class="flex items-center mb-4">
-                        <i class="fas fa-map-marker-alt text-xl w-8" style="color: var(--accent-color);"></i>
-                        <span style="color: var(--text-secondary);">Lagos, Nigeria</span>
-                    </div>
-                    <div class="flex items-center mb-4">
-                        <i class="fas fa-envelope text-xl w-8" style="color: var(--accent-color);"></i>
-                        <span style="color: var(--text-secondary);">anaelejoshua@gmail.com</span>
-                    </div>
-                    <div class="flex items-center mb-6">
-                        <i class="fas fa-phone-alt text-xl w-8" style="color: var(--accent-color);"></i>
-                        <span style="color: var(--text-secondary);">Send an email to get My number</span>
-                    </div>
-                    <div class="flex space-x-4">
-                        <a href="https://github.com/AnaeleJoshua" class="h-10 w-10 rounded-full flex items-center justify-center transition duration-300" style="background-color: var(--bg-accent); color: var(--text-primary);">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/joshua-anaele-2a917ab9/" class="h-10 w-10 rounded-full flex items-center justify-center transition duration-300" style="background-color: var(--bg-accent); color: var(--text-primary);">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="#" class="h-10 w-10 rounded-full flex items-center justify-center transition duration-300" style="background-color: var(--bg-accent); color: var(--text-primary);">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="" class="h-10 w-10 rounded-full flex items-center justify-center transition duration-300" style="background-color: var(--bg-accent); color: var(--text-primary);">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="md:w-1/2">
-                    <form id="contact-form" class="rounded-lg shadow-md p-8" style="background-color: var(--card-bg);">
-                        <div class="mb-6">
-                            <label for="name" class="block font-bold mb-2" style="color: var(--text-primary);">Name</label>
-                            <input type="text" id="name" class="form-input w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2" required>
-                        </div>
-                        <div class="mb-6">
-                            <label for="email" class="block font-bold mb-2" style="color: var(--text-primary);">Email</label>
-                            <input type="email" id="email" class="form-input w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2" required>
-                        </div>
-                        <div class="mb-6">
-                            <label for="subject" class="block font-bold mb-2" style="color: var(--text-primary);">Subject</label>
-                            <input type="text" id="subject" class="form-input w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2" required>
-                        </div>
-                        <div class="mb-6">
-                            <label for="message" class="block font-bold mb-2" style="color: var(--text-primary);">Message</label>
-                            <textarea id="message" rows="5" class="form-textarea w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2" required></textarea>
-                        </div>
-                        <button type="submit" class="w-full text-white font-bold py-3 px-6 rounded-lg transition duration-300" style="background-color: var(--accent-color);">
-                            Send Message <i class="fas fa-paper-plane ml-2"></i>
-                        </button>
-                    </form>
-                </div>
+  <!-- Projects -->
+  <section id="projects" class="py-24 bg-gray-50 dark:bg-neutral-900/40">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-2xl sm:text-3xl font-semibold text-center mb-12">My Projects</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Project 1 -->
+        <!-- <div class="bg-white dark:bg-neutral-900 shadow rounded-lg overflow-hidden">
+          <div class="relative overflow-hidden">
+            <img src="/placeholder.svg?height=300&width=500" alt="E-commerce Website" class="w-full h-56 object-cover transition duration-500 hover:scale-110">
+            <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 hover:opacity-100 transition">
+              <a href="#" target="_blank" rel="noopener" class="text-white text-xs sm:text-sm font-medium py-2 px-4 rounded-md mx-2 bg-blue-600 hover:bg-blue-700">
+                <i class="fas fa-eye mr-2"></i> View
+              </a>
+              <a href="#" target="_blank" rel="noopener" class="text-white text-xs sm:text-sm font-medium py-2 px-4 rounded-md mx-2 bg-gray-700 hover:bg-gray-800">
+                <i class="fab fa-github mr-2"></i> Code
+              </a>
             </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="py-10">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-6 md:mb-0">
-                    <a href="#" class="text-2xl font-bold">AJ</a>
-                    <p class="mt-2" style="color: var(--footer-text);">Software Engineer || Technical Writer || AI/ML </p>
-                </div>
-                <div class="flex flex-col items-center md:items-end">
-                    <div class="flex space-x-4 mb-4">
-                        <a href="#" class="hover:text-white transition duration-300" style="color: var(--footer-text);">
-                            <i class="fab fa-github text-xl"></i>
-                        </a>
-                        <a href="#" class="hover:text-white transition duration-300" style="color: var(--footer-text);">
-                            <i class="fab fa-linkedin-in text-xl"></i>
-                        </a>
-                        <a href="#" class="hover:text-white transition duration-300" style="color: var(--footer-text);">
-                            <i class="fab fa-twitter text-xl"></i>
-                        </a>
-                        <a href="#" class="hover:text-white transition duration-300" style="color: var(--footer-text);">
-                            <i class="fab fa-instagram text-xl"></i>
-                        </a>
-                    </div>
-                    <p style="color: var(--footer-text);">&copy; 2025 Anaele Joshua. All rights reserved.</p>
-                </div>
+          </div>
+          <div class="p-5">
+            <h3 class="text-sm font-semibold mb-2">E-commerce Website</h3>
+            <p class="text-xs text-gray-600 dark:text-gray-300">A fully responsive e-commerce platform with product filtering and cart functionality.</p>
+          </div>
+        </div> -->
+        <!-- Project 2 -->
+        <div class="bg-white dark:bg-neutral-900 shadow rounded-lg overflow-hidden">
+          <div class="relative overflow-hidden">
+            <img src="/images/uriel.png?height=300&width=500" alt="Portfolio Template" class="w-full h-56 object-cover transition duration-500 hover:scale-110">
+            <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 hover:opacity-100 transition">
+              <a href="https://uriel-1.onrender.com/" target="_blank" rel="noopener" class="text-white text-xs sm:text-sm font-medium py-2 px-4 rounded-md mx-2 bg-blue-600 hover:bg-blue-700">
+                <i class="fas fa-eye mr-2"></i> View
+              </a>
+              <a href="https://github.com/AnaeleJoshua/Uriel" target="_blank" rel="noopener" class="text-white text-xs sm:text-sm font-medium py-2 px-4 rounded-md mx-2 bg-gray-700 hover:bg-gray-800">
+                <i class="fab fa-github mr-2"></i> Code
+              </a>
             </div>
+          </div>
+          <div class="p-5">
+            <h3 class="text-sm font-semibold mb-2">Uriel</h3>
+            <p class="text-xs text-gray-600 dark:text-gray-300">Uriel is project management backend api, that allows users create and manage organisation as well as manage projects within that organisation</p>
+          </div>
         </div>
-    </footer>
+        <!-- Project 3 -->
+        <div class="bg-white dark:bg-neutral-900 shadow rounded-lg overflow-hidden">
+          <div class="relative overflow-hidden">
+            <img src="/images/11.09.2025_17.42.49_REC.png" alt="Pregnancy Care Desktop App" class="w-full h-56 object-cover transition duration-500 hover:scale-110">
+            <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 hover:opacity-100 transition">
+              <a href="#" target="_blank" rel="noopener" class="text-white text-xs sm:text-sm font-medium py-2 px-4 rounded-md mx-2 bg-blue-600 hover:bg-blue-700">
+                <i class="fas fa-eye mr-2"></i> View
+              </a>
+              <a href="https://github.com/AnaeleJoshua/PregnancyCare-desktop" target="_blank" rel="noopener" class="text-white text-xs sm:text-sm font-medium py-2 px-4 rounded-md mx-2 bg-gray-700 hover:bg-gray-800">
+                <i class="fab fa-github mr-2"></i> desktop Code
+              </a>
+              <a href="https://github.com/AnaeleJoshua/pregNant-Backend" target="_blank" rel="noopener" class="text-white text-xs sm:text-sm font-medium py-2 px-4 rounded-md mx-2 bg-gray-700 hover:bg-gray-800">
+                <i class="fab fa-github mr-2"></i> Backend Code
+              </a>
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="text-sm font-semibold mb-2">PregnancyCare Desktop App</h3>
+            <p class="text-xs text-gray-600 dark:text-gray-300">An Early Pregnancy detection expert system, that helps detect early pregnancy, estimate delivery and conception date and provide care for expecting mothers</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script src="script.js"></script>
+  <!-- Blog -->
+  <section id="blog" class="py-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-2xl sm:text-3xl font-semibold text-center mb-12">My Blogs</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Post 1 -->
+        <div class="bg-white dark:bg-neutral-900 shadow rounded-lg overflow-hidden">
+          <div class="relative overflow-hidden">
+            <img src="/images/transaction management.webp" alt="Transaction management article cover" class="w-full h-56 object-cover transition duration-500 hover:scale-110">
+            <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 hover:opacity-100 transition">
+              <a href="https://medium.com/@anaelejoshua/ensuring-reliable-data-in-your-application-database-with-transaction-management-a-guide-to-passing-81f9f61e7120" target="_blank" rel="noopener" class="text-white text-xs sm:text-sm font-medium py-2 px-4 rounded-md mx-2 bg-blue-600 hover:bg-blue-700">
+                <i class="fas fa-eye mr-2"></i> View
+              </a>
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="text-sm font-semibold">Ensuring Reliable Data in Your Application Database with Transaction Management: A Guide to Passing the ACID Test</h3>
+          </div>
+        </div>
+        <!-- Post 2 -->
+        <div class="bg-white dark:bg-neutral-900 shadow rounded-lg overflow-hidden">
+          <div class="relative overflow-hidden">
+            <img src="/images/understanding_c_libraries.webp" alt="C libraries article cover" class="w-full h-56 object-cover transition duration-500 hover:scale-110">
+            <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 hover:opacity-100 transition">
+              <a href="https://medium.com/@anaelejoshua/understanding-and-creating-libraries-in-c-d96ef8e1ef74" target="_blank" rel="noopener" class="text-white text-xs sm:text-sm font-medium py-2 px-4 rounded-md mx-2 bg-blue-600 hover:bg-blue-700">
+                <i class="fas fa-eye mr-2"></i> View
+              </a>
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="text-sm font-semibold">Understanding and Creating Libraries in C</h3>
+          </div>
+        </div>
+        <!-- Post 3 -->
+        <div class="bg-white dark:bg-neutral-900 shadow rounded-lg overflow-hidden">
+          <div class="relative overflow-hidden">
+            <img src="/images/termux.webp" alt="Termux tutorial cover" class="w-full h-56 object-cover transition duration-500 hover:scale-110">
+            <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 hover:opacity-100 transition">
+              <a href="https://medium.com/@anaelejoshua/how-to-run-c-c-python-on-your-phone-using-termux-3e20b13d9c" target="_blank" rel="noopener" class="text-white text-xs sm:text-sm font-medium py-2 px-4 rounded-md mx-2 bg-blue-600 hover:bg-blue-700">
+                <i class="fas fa-eye mr-2"></i> View
+              </a>
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="text-sm font-semibold">How to Run C/C++/ Python on your phone Using Termux</h3>
+          </div>
+        </div>
+        <!-- Post 4 -->
+        <div class="bg-white dark:bg-neutral-900 shadow rounded-lg overflow-hidden">
+          <div class="relative overflow-hidden">
+            <img src="/images/termux.webp" alt="Integrate Termux with editor cover" class="w-full h-56 object-cover transition duration-500 hover:scale-110">
+            <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 hover:opacity-100 transition">
+              <a href="https://medium.com/@anaelejoshua/seamlessly-integrate-termux-with-your-code-editor-for-web-development-on-android-9f6270bbc242" target="_blank" rel="noopener" class="text-white text-xs sm:text-sm font-medium py-2 px-4 rounded-md mx-2 bg-blue-600 hover:bg-blue-700">
+                <i class="fas fa-eye mr-2"></i> View
+              </a>
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="text-sm font-semibold">Seamlessly Integrate Termux with Your Code Editor for Web Development on Android</h3>
+          </div>
+        </div>
+        <!-- Post 5 -->
+        <div class="bg-white dark:bg-neutral-900 shadow rounded-lg overflow-hidden">
+          <div class="relative overflow-hidden">
+            <img src="/images/demystifying http.jpeg" alt="Demystifying HTTP cover" class="w-full h-56 object-cover transition duration-500 hover:scale-110">
+            <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 hover:opacity-100 transition">
+              <a href="https://coderbro.hashnode.dev/demystifying-http-dummys-guide-to-understanding-the-webs-backbone" target="_blank" rel="noopener" class="text-white text-xs sm:text-sm font-medium py-2 px-4 rounded-md mx-2 bg-blue-600 hover:bg-blue-700">
+                <i class="fas fa-eye mr-2"></i> View
+              </a>
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="text-sm font-semibold">Demystifying HTTP: Dummy's Guide to Understanding the Web's Backbone</h3>
+          </div>
+        </div>
+        <!-- Post 6 -->
+        <div class="bg-white dark:bg-neutral-900 shadow rounded-lg overflow-hidden">
+          <div class="relative overflow-hidden">
+            <img src="/images/demystifying http2.jpeg" alt="Demystifying HTTP/2 cover" class="w-full h-56 object-cover transition duration-500 hover:scale-110">
+            <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 hover:opacity-100 transition">
+              <a href="https://coderbro.hashnode.dev/demystifying-http-2-dummys-guide-to-understanding-the-webs-backbone" target="_blank" rel="noopener" class="text-white text-xs sm:text-sm font-medium py-2 px-4 rounded-md mx-2 bg-blue-600 hover:bg-blue-700">
+                <i class="fas fa-eye mr-2"></i> View
+              </a>
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="text-sm font-semibold">Demystifying HTTP 2: Dummy's Guide to Understanding the Web's Backbone</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-24 bg-gray-50 dark:bg-neutral-900/40">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-2xl sm:text-3xl font-semibold text-center mb-12">Get In Touch</h2>
+      <div class="grid md:grid-cols-2 gap-12">
+        <div>
+          <h3 class="text-lg font-semibold mb-3">Contact Information</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">Feel free to reach out for questions or opportunities. I’m open to new projects and collaborations.</p>
+          <div class="flex items-center mb-3 text-sm"><i class="fas fa-map-marker-alt text-blue-600 dark:text-blue-400 w-6"></i><span>Lagos, Nigeria</span></div>
+          <div class="flex items-center mb-3 text-sm"><i class="fas fa-envelope text-blue-600 dark:text-blue-400 w-6"></i><span>anaelejoshua@gmail.com</span></div>
+          <div class="flex items-center mb-6 text-sm"><i class="fas fa-phone-alt text-blue-600 dark:text-blue-400 w-6"></i><span>Send an email to get my number</span></div>
+          <div class="flex space-x-3">
+            <a href="https://github.com/AnaeleJoshua" target="_blank" rel="noopener" class="h-9 w-9 rounded-full flex items-center justify-center bg-gray-100 dark:bg-neutral-800 hover:bg-gray-200 dark:hover:bg-neutral-700 transition"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/joshua-anaele-2a917ab9/" target="_blank" rel="noopener" class="h-9 w-9 rounded-full flex items-center justify-center bg-gray-100 dark:bg-neutral-800 hover:bg-gray-200 dark:hover:bg-neutral-700 transition"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="h-9 w-9 rounded-full flex items-center justify-center bg-gray-100 dark:bg-neutral-800 hover:bg-gray-200 dark:hover:bg-neutral-700 transition"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="h-9 w-9 rounded-full flex items-center justify-center bg-gray-100 dark:bg-neutral-800 hover:bg-gray-200 dark:hover:bg-neutral-700 transition"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div>
+          <!-- Keep original IDs to preserve functionality if you attach handlers -->
+          <form id="contact-form" class="rounded-lg shadow p-6 bg-white dark:bg-neutral-900">
+            <div class="mb-4">
+              <label for="name" class="block text-xs font-semibold mb-1">Name</label>
+              <input type="text" id="name" class="w-full px-3 py-2 border rounded-md text-sm bg-transparent focus:outline-none focus:ring-2 focus:ring-blue-600/40" required>
+            </div>
+            <div class="mb-4">
+              <label for="email" class="block text-xs font-semibold mb-1">Email</label>
+              <input type="email" id="email" class="w-full px-3 py-2 border rounded-md text-sm bg-transparent focus:outline-none focus:ring-2 focus:ring-blue-600/40" required>
+            </div>
+            <div class="mb-4">
+              <label for="subject" class="block text-xs font-semibold mb-1">Subject</label>
+              <input type="text" id="subject" class="w-full px-3 py-2 border rounded-md text-sm bg-transparent focus:outline-none focus:ring-2 focus:ring-blue-600/40" required>
+            </div>
+            <div class="mb-6">
+              <label for="message" class="block text-xs font-semibold mb-1">Message</label>
+              <textarea id="message" rows="5" class="w-full px-3 py-2 border rounded-md text-sm bg-transparent focus:outline-none focus:ring-2 focus:ring-blue-600/40" required></textarea>
+            </div>
+            <button type="submit" class="w-full text-white font-medium py-2.5 px-4 rounded-md text-sm bg-blue-600 hover:bg-blue-700 transition">
+              Send Message <i class="fas fa-paper-plane ml-2"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-10">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+        <div>
+          <a href="#" class="text-base sm:text-lg font-semibold">AJ</a>
+          <p class="mt-2 text-xs sm:text-sm text-gray-600 dark:text-gray-300">Software Engineer • Technical Writer • AI/ML</p>
+        </div>
+        <div class="flex flex-col items-center md:items-end">
+          <div class="flex space-x-4 mb-3">
+            <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-white transition"><i class="fab fa-github text-lg"></i></a>
+            <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-white transition"><i class="fab fa-linkedin-in text-lg"></i></a>
+            <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-white transition"><i class="fab fa-twitter text-lg"></i></a>
+            <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-white transition"><i class="fab fa-instagram text-lg"></i></a>
+          </div>
+          <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-300">&copy; 2025 Anaele Joshua. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Minimal JS: theme + mobile menu -->
+  <!-- <script>
+    (function initTheme() {
+      const root = document.documentElement;
+      const stored = localStorage.getItem('theme');
+      if (stored === 'dark' || (!stored && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        root.classList.add('dark');
+      } else {
+        root.classList.remove('dark');
+      }
+      syncIcons();
+    })();
+
+    function toggleTheme() {
+      const root = document.documentElement;
+      const isDark = root.classList.toggle('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      syncIcons();
+    }
+
+    function syncIcons() {
+      const isDark = document.documentElement.classList.contains('dark');
+      const desk = document.getElementById('theme-icon-desktop');
+      const mob = document.getElementById('theme-icon-mobile');
+      const toMoon = 'fas fa-moon';
+      const toSun = 'fas fa-sun';
+      [desk, mob].forEach(el => {
+        if (!el) return;
+        el.className = isDark ? toSun : toMoon; // show opposite to indicate action
+      });
+    }
+
+    document.getElementById('theme-toggle')?.addEventListener('click', toggleTheme);
+    document.getElementById('theme-toggle-mobile')?.addEventListener('click', toggleTheme);
+
+    // Mobile menu
+    const menuBtn = document.getElementById('mobile-menu-button');
+    const menu = document.getElementById('mobile-menu');
+    menuBtn?.addEventListener('click', () => {
+      const isHidden = menu.classList.toggle('hidden');
+      menuBtn.setAttribute('aria-expanded', String(!isHidden));
+    });
+  </script> -->
+
+  <!-- (Optional) Your existing script file can still be included below if needed -->
+  <script src="script.js"></script>
 </body>
 </html>
