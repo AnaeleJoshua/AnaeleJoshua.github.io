@@ -12,8 +12,132 @@
   window.tailwind.config.darkMode = 'class';
 </script>
 <script src="https://cdn.tailwindcss.com"></script>
+<style>
+  /* Enhanced temporary override to ensure class-based toggling works until Tailwind is regenerated */
+  html.dark, html.dark body {
+    background-color: rgb(10,10,10) !important;
+    color: rgb(245,245,245) !important;
+  }
+  html:not(.dark), html:not(.dark) body {
+    background-color: #ffffff !important;
+    color: #111 !important;
+  }
+
+  /* Neutralize Tailwind media-based "dark:" utilities when .dark is not present.
+     NOTE: avoid touching box-shadow so native 'shadow' utilities still work. */
+  html:not(.dark) [class*="dark:"] {
+    background-color: transparent !important;
+    color: inherit !important;
+    border-color: inherit !important;
+    /* DO NOT override box-shadow here */
+  }
+
+  /* Specific resets for common property groups */
+  html:not(.dark) [class*="dark:bg-"] { background-color: transparent !important; }
+  html:not(.dark) [class*="dark:text-"] { color: inherit !important; }
+  html:not(.dark) [class*="dark:border-"] { border-color: inherit !important; }
+  html:not(.dark) [class*="dark:placeholder-"] { color: inherit !important; opacity: 1 !important; }
+
+  /* Prevent prefers-color-scheme from forcing dark color-scheme rendering */
+  @media (prefers-color-scheme: dark) {
+    html { color-scheme: light !important; }
+  }
+
+  /* =========================
+     Light-mode GLASSMORPHISM POLISH (ONLY when .dark is NOT present)
+     - glass cards, softened shadows, layered off-whites
+     - preserves Tailwind semantics while improving contrast/texture
+     ========================= */
+  html:not(.dark) body {
+    background-color: #f5f8fb !important; /* gentle, cool off-white */
+    color: #0f1724 !important; /* slightly stronger text contrast */
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Nav / header glass */
+  html:not(.dark) nav {
+    background-color: rgba(255,255,255,0.62) !important;
+    border-bottom: 1px solid rgba(15,23,42,0.04) !important;
+    backdrop-filter: blur(8px) saturate(120%) !important;
+    -webkit-backdrop-filter: blur(8px) saturate(120%) !important;
+    box-shadow: 0 6px 18px rgba(15,23,42,0.04) !important;
+  }
+
+  /* Section backgrounds — subtle layered shades */
+  html:not(.dark) .bg-gray-50 {
+    background-color: #f6f9fc !important;
+    border: 1px solid rgba(15,23,42,0.03) !important;
+  }
+
+  /* Cards / blocks that use bg-white should get a glass-style surface */
+  html:not(.dark) .bg-white {
+    background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(250,250,252,0.78)) !important;
+    border: 1px solid rgba(15,23,42,0.06) !important;
+    box-shadow: 0 10px 30px rgba(15,23,42,0.06) !important;
+    backdrop-filter: blur(10px) saturate(125%) !important;
+    -webkit-backdrop-filter: blur(10px) saturate(125%) !important;
+    transition: box-shadow 180ms ease, transform 160ms ease, background 160ms ease;
+    border-radius: 0.5rem; /* match rounded-lg feel */
+  }
+
+  /* Slightly stronger shadows for elements that use .shadow utilities */
+  html:not(.dark) .shadow { box-shadow: 0 12px 36px rgba(15,23,42,0.06) !important; }
+  html:not(.dark) .shadow-md { box-shadow: 0 8px 26px rgba(15,23,42,0.05) !important; }
+
+  /* Hover lift for rounded blocks */
+  html:not(.dark) .rounded-lg { will-change: transform, box-shadow; }
+  html:not(.dark) .bg-white:hover { transform: translateY(-4px) !important; box-shadow: 0 18px 48px rgba(15,23,42,0.08) !important; }
+
+  /* Inputs / textarea / select — glassy but readable */
+  html:not(.dark) input,
+  html:not(.dark) textarea,
+  html:not(.dark) select,
+  html:not(.dark) .form-control {
+    background: rgba(255,255,255,0.9) !important;
+    border: 1px solid rgba(15,23,42,0.08) !important;
+    box-shadow: 0 4px 14px rgba(15,23,42,0.04) !important;
+    border-radius: 0.45rem;
+    transition: box-shadow 160ms ease, border-color 120ms ease, transform 120ms ease;
+    color: #0f1724 !important;
+  }
+  html:not(.dark) input::placeholder,
+  html:not(.dark) textarea::placeholder { color: #6b7280 !important; opacity: 1 !important; }
+
+  html:not(.dark) input:focus,
+  html:not(.dark) textarea:focus,
+  html:not(.dark) select:focus {
+    outline: none !important;
+    box-shadow: 0 0 0 6px rgba(59,130,246,0.08) !important; /* soft blue ring */
+    border-color: rgba(59,130,246,0.95) !important;
+    transform: translateY(-1px);
+  }
+
+  /* Buttons — glass-aware elevation */
+  html:not(.dark) .bg-blue-600 {
+    box-shadow: 0 12px 34px rgba(59,130,246,0.08) !important;
+    transition: box-shadow 140ms ease, transform 140ms ease;
+  }
+  html:not(.dark) .bg-blue-600:hover { transform: translateY(-2px) !important; }
+
+  /* Muted text tones */
+  html:not(.dark) .text-gray-600 { color: #556077 !important; }
+  html:not(.dark) .text-gray-700 { color: #334155 !important; }
+
+  /* Make small UI accents a touch warmer/cooler for contrast */
+  html:not(.dark) .border-blue-600 { border-color: rgba(37,99,235,0.9) !important; }
+  html:not(.dark) .text-blue-600 { color: #2563eb !important; }
+
+  /* Keep placeholders visible and appropriately colored */
+  html:not(.dark) ::placeholder { color: #94a3b8 !important; opacity: 1 !important; }
+
+  /* Utility: gentle image hover scale */
+  html:not(.dark) .hover\\:scale-110:hover { transform: scale(1.04) !important; }
+
+</style>
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <!-- Toastify CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
 </head>
 <body class="bg-white text-gray-800 dark:bg-neutral-950 dark:text-neutral-100 leading-relaxed antialiased">
 
@@ -311,26 +435,27 @@
           </div>
         </div>
         <div>
-          <!-- Keep original IDs to preserve functionality if you attach handlers -->
-          <form id="contact-form" class="rounded-lg shadow p-6 bg-white dark:bg-neutral-900">
+          <!-- Interactive contact form (self-contained) -->
+          <form id="contact-form" class="rounded-lg shadow p-6 bg-white dark:bg-neutral-900" novalidate>
             <div class="mb-4">
               <label for="name" class="block text-xs font-semibold mb-1">Name</label>
-              <input type="text" id="name" class="w-full px-3 py-2 border rounded-md text-sm bg-transparent focus:outline-none focus:ring-2 focus:ring-blue-600/40" required>
+              <input type="text" id="name" name="name" class="w-full px-3 py-2 border rounded-md text-sm bg-transparent focus:outline-none focus:ring-2 focus:ring-blue-600/40" required>
             </div>
             <div class="mb-4">
               <label for="email" class="block text-xs font-semibold mb-1">Email</label>
-              <input type="email" id="email" class="w-full px-3 py-2 border rounded-md text-sm bg-transparent focus:outline-none focus:ring-2 focus:ring-blue-600/40" required>
-            </div>
-            <div class="mb-4">
-              <label for="subject" class="block text-xs font-semibold mb-1">Subject</label>
-              <input type="text" id="subject" class="w-full px-3 py-2 border rounded-md text-sm bg-transparent focus:outline-none focus:ring-2 focus:ring-blue-600/40" required>
+              <input type="email" id="email" name="email" class="w-full px-3 py-2 border rounded-md text-sm bg-transparent focus:outline-none focus:ring-2 focus:ring-blue-600/40" required>
             </div>
             <div class="mb-6">
               <label for="message" class="block text-xs font-semibold mb-1">Message</label>
-              <textarea id="message" rows="5" class="w-full px-3 py-2 border rounded-md text-sm bg-transparent focus:outline-none focus:ring-2 focus:ring-blue-600/40" required></textarea>
+              <textarea id="message" name="message" rows="5" class="w-full px-3 py-2 border rounded-md text-sm bg-transparent focus:outline-none focus:ring-2 focus:ring-blue-600/40" required></textarea>
             </div>
-            <button type="submit" class="w-full text-white font-medium py-2.5 px-4 rounded-md text-sm bg-blue-600 hover:bg-blue-700 transition">
-              Send Message <i class="fas fa-paper-plane ml-2"></i>
+
+            <button id="send-btn" type="submit" class="w-full flex items-center justify-center gap-3 text-white font-medium py-2.5 px-4 rounded-md text-sm bg-blue-600 hover:bg-blue-700 transition" aria-live="polite">
+              <svg id="btn-spinner" class="hidden w-4 h-4 animate-spin text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+              </svg>
+              <span id="btn-text">Send Message</span>
             </button>
           </form>
         </div>
@@ -404,6 +529,10 @@
   </script> -->
 
   <!-- (Optional) Your existing script file can still be included below if needed -->
+  <!-- Toastify JS (CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <!-- Contact logic moved to index.js -->
+  <script src="index.js"></script>
   <script src="script.js?v=20251029.1"></script>
 </body>
 </html>

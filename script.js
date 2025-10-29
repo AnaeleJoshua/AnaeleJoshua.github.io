@@ -154,55 +154,7 @@
 
         window.addEventListener('scroll', setActiveLink);
 
-        // Form validation
-        const contactForm = document.getElementById('contact-form');
-
-        if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-
-                const name = document.getElementById('name').value.trim();
-                const email = document.getElementById('email').value.trim();
-                const subject = document.getElementById('subject').value.trim();
-                const message = document.getElementById('message').value.trim();
-
-                if (name === '' || email === '' || subject === '' || message === '') {
-                    alert('Please fill in all fields');
-                    return;
-                }
-
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailRegex.test(email)) {
-                    alert('Please enter a valid email address');
-                    return;
-                }
-
-                fetch('https://portfolio-server-snowy-omega.vercel.app/mail', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        name,
-                        email,
-                        subject,
-                        message
-                    })
-                })
-                .then(response => {
-                    if (!response.ok) throw new Error('Network response was not ok');
-                    return response.json();
-                })
-                .then(() => {
-                    alert('Message sent successfully!');
-                    contactForm.reset();
-                })
-                .catch(error => {
-                    console.error('There was a problem with the fetch operation:', error);
-                    alert('There was an error sending your message. Please try again later.');
-                });
-            });
-        }
+    // Contact form handled inline in index.html (Toastify + FormData fetch). No-op here.
 
         // Back to top button
         const backToTopButton = document.createElement('div');
