@@ -6,10 +6,12 @@
   <title>Josh Portfolio</title>
   <!-- Tailwind -->
   <script>
-    // Tailwind CDN config: enable class-based dark mode
-    window.tailwind = { config: { darkMode: 'class' } };
-  </script>
-  <script src="https://cdn.tailwindcss.com"></script>
+  // Tailwind CDN config: enable class-based dark mode (safe assignment)
+  window.tailwind = window.tailwind || {};
+  window.tailwind.config = window.tailwind.config || {};
+  window.tailwind.config.darkMode = 'class';
+</script>
+<script src="https://cdn.tailwindcss.com"></script>
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 </head>
@@ -402,6 +404,6 @@
   </script> -->
 
   <!-- (Optional) Your existing script file can still be included below if needed -->
-  <script src="script.js"></script>
+  <script src="script.js?v=20251029.1"></script>
 </body>
 </html>
