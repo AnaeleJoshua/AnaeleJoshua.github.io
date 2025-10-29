@@ -4,8 +4,8 @@
   const btn = document.getElementById('send-btn');
   const spinner = document.getElementById('btn-spinner');
   const btnText = document.getElementById('btn-text');
-  const ENDPOINT = 'https://portfolio-server-snowy-omega.vercel.app/mail';
-// const ENDPOINT = 'http://localhost:5000/mail';
+//   const ENDPOINT = 'https://portfolio-server-snowy-omega.vercel.app/mail';
+const ENDPOINT = 'http://localhost:5000/mail';
 
   function showToast(message, isSuccess = true) {
     Toastify({
